@@ -10,7 +10,6 @@ public class Car
 {
     public ObjectId Id { get; set; }
 
-    [Required(ErrorMessage = "You must provide the make and model")]
     [DisplayName("Make and Model")]
     public string? Model { get; set; }
 

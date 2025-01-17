@@ -1,0 +1,54 @@
+﻿@model CarListViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if(TempData["CarDeleted"] is not null)
+{
+    <p class="text-success">@TempData["CarDeleted"]</p>
+}
+else if(!Model.Cars.Any())
+{
+    <p>No results</p>
+}
+else
+{
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <th>
+                Model
+            </th>
+            <th>
+                Plate Number
+            </th>
+            <th>
+                Location
+            </th>            
+            <th>
+                Actions
+            </th>
+        </tr>
+
+        @foreach (var car in Model.Cars)
+        {
+            <tr>
+                <td>@car.Model</td>
+                <td>@car.PlateNumber</td>
+                <td>@car.Location</td>                
+                <td>
+                    <a asp-action="Edit" asp-route-id="@car.Id.ToString()" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@car.Id.ToString()" class="btn btn-danger btn-sm">Delete</a>
+                    @if (car.IsAvailable)
+                    {
+                        <a asp-controller="Booking" asp-action="Add" asp-route-carId="@car.Id.ToString()" class="btn btn-success btn-sm">Book</a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+<p>
+    <a class="btn btn-primary" asp-action="Add">Add new car</a>
+</p>
+

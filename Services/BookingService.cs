@@ -20,7 +20,7 @@ public class BookingService(RentARideDbContext context, ICarService carService) 
             throw new ArgumentException("Car to book could not be found");
         }
 
-        booking.CarModel = bookedCar!.Model;
+        booking.CarModel = bookedCar!.Model ?? "";
         bookedCar.IsAvailable = false;
         _context.Cars.Update(bookedCar);
 

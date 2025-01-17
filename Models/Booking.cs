@@ -12,7 +12,8 @@ public class Booking
 
     public ObjectId CarId { get; set; }
 
-    public string CarModel { get; set; } = null!;
+    [DisplayName("Car Model")]    
+    public string? CarModel { get; set; }
 
     [Required(ErrorMessage = "The start date is required to make this booking")]
     [DisplayName("Start Date")]    

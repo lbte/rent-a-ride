@@ -17,6 +17,26 @@ a {
   border-color: #1861ac;
 }
 
+.navbar {
+  background-color: #338135; 
+}
+
+.navbar .nav-link {
+  color: white; 
+}
+
+.navbar .navbar-brand {
+  color: #338135; 
+}
+
+.navbar .nav-link:hover {
+  color: lightgray; 
+}
+
+.navbar-toggler-icon {
+  background-color: #fff; 
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;

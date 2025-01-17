@@ -35,7 +35,7 @@ public class BookingController(IBookingService BookingService, ICarService carSe
             Booking = new Booking
             {
                 CarId = selectedCar!.Id,
-                CarModel = selectedCar!.Model,
+                CarModel = selectedCar!.Model ?? "",
                 StartDate = DateTime.UtcNow,
                 EndDate = DateTime.UtcNow.AddDays(1)
             }

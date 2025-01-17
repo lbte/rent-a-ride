@@ -45,7 +45,7 @@ public class CarController(ICarService carService) : Controller
 
     public IActionResult Edit(string id)
     {
-        if (string.IsNullOrEmpty(id))
+        if (string.IsNullOrEmpty(id) || _carService.GetById(new ObjectId(id)) is null)
         {
             return NotFound();
         }
