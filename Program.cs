@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RentARide.Models;
 using RentARide.Services;
+using RentARide.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("Mo
 
 builder.Services.AddDbContext<RentARideDbContext>(options =>
     options.UseMongoDB(mongoDBSettings?.AtlasURI ?? "", mongoDBSettings?.DatabaseName ?? ""));
+
+builder.Services.AddScoped<ICarService, CarService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
 
 var app = builder.Build();
 
