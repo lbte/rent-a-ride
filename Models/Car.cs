@@ -15,8 +15,8 @@ public class Car
     public string? Model { get; set; }
 
     [Required(ErrorMessage = "The number plate is required to identify the vehicle")]
-    [DisplayName("Number Plate")]
-    public string NumberPlate { get; set; } = null!;
+    [DisplayName("Plate Number")]
+    public string PlateNumber { get; set; } = null!;
 
     [Required(ErrorMessage = "You must add the location of the car")]
     public string Location { get; set; } = null!;

@@ -43,7 +43,7 @@ public class CarService(RentARideDbContext context) : ICarService
         if (carToUpdate is not null)
         {
             carToUpdate.Model = car.Model;
-            carToUpdate.NumberPlate = car.NumberPlate;
+            carToUpdate.PlateNumber = car.PlateNumber;
             carToUpdate.Location = car.Location;
             carToUpdate.IsAvailable = car.IsAvailable;
 
