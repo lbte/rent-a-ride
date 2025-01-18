@@ -10,8 +10,9 @@ public class Car
 {
     public ObjectId Id { get; set; }
 
+    [Required(ErrorMessage = "The car model is required")]
     [DisplayName("Make and Model")]
-    public string? Model { get; set; }
+    public string Model { get; set; } = null!;
 
     [Required(ErrorMessage = "The number plate is required to identify the vehicle")]
     [DisplayName("Plate Number")]

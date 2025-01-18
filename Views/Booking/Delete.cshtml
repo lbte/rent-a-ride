@@ -1,5 +1,9 @@
 @model Booking
 
+@{
+    ViewData["Title"] = "Delete Booking";
+}
+
 <h2>Delete booking</h2>
 <hr />
 
@@ -15,6 +19,12 @@
         </dt>
         <dd class="col-sm-10">
             @Model?.CarModel
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="CarPlateNumber"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model?.CarPlateNumber
         </dd>
         <dt class="col-sm-2">
             <label asp-for="StartDate"></label>

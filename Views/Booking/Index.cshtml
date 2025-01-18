@@ -1,19 +1,30 @@
 @model BookingListViewModel
 
+@{
+    ViewData["Title"] = "Bookings";
+}
+
 @if (TempData["BookingDeleted"] is not null)
 {
     <p class="text-success">@TempData["BookingDeleted"]</p>
 }
 else if (!Model.Bookings.Any())
 {
-    <p>No results</p>
+    <div class="text-center">
+        <h2>No bookings</h2>
+        <p> </p>
+        <img src="https://gifrific.com/wp-content/uploads/2012/11/Mr-Bean-Driving-on-Top-of-his-car.gif" width="500px" height="300px" alt="No bookings gif" style="max-width: 100%; height: auto;">
+    </div>
 }
 else
 {    
     <table class="table table-condensed table-bordered">
         <tr>
             <th>
-                Booked Car
+                Car Model
+            </th>
+            <th>
+                Plate Number
             </th>
             <th>
                 Start Date
@@ -30,6 +41,7 @@ else
         {
             <tr>
                 <td>@booking.CarModel</td>
+                <td>@booking.CarPlateNumber</td>
                 <td>@booking.StartDate</td>
                 <td>@booking.EndDate</td>
                 <td>

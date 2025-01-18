@@ -35,7 +35,8 @@ public class BookingController(IBookingService BookingService, ICarService carSe
             Booking = new Booking
             {
                 CarId = selectedCar!.Id,
-                CarModel = selectedCar!.Model ?? "",
+                CarModel = selectedCar.Model,
+                CarPlateNumber = selectedCar.PlateNumber,
                 StartDate = DateTime.UtcNow,
                 EndDate = DateTime.UtcNow.AddDays(1)
             }
@@ -51,7 +52,9 @@ public class BookingController(IBookingService BookingService, ICarService carSe
         {
             Booking newBooking = new()
             {
-                CarId = bookingAddViewModel.Booking!.CarId,
+                CarId = bookingAddViewModel!.Booking.CarId,
+                CarModel = bookingAddViewModel.Booking.CarModel,
+                CarPlateNumber = bookingAddViewModel.Booking.CarPlateNumber,
                 StartDate = bookingAddViewModel.Booking.StartDate,
                 EndDate = bookingAddViewModel.Booking.EndDate
             };

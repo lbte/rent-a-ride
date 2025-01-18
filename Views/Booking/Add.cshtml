@@ -1,14 +1,36 @@
 @model BookingAddViewModel
+@{
+    ViewData["Title"] = "Add Booking";
+}
 
 @if (ViewData["ErrorMessage"] != null)
 {
     <p class="text-danger">@ViewData["ErrorMessage"]</p>
 }
 
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label asp-for="Booking.CarModel"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model?.Booking.CarModel
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Booking.CarPlateNumber"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model?.Booking.CarPlateNumber
+        </dd>
+    </dl>
+</div>
+
 <form method="post" asp-controller="Booking" asp-action="Add">
     <div asp-validation-summary="All" class="text-danger"></div>
     <input type="hidden" asp-for="Booking.Id" />
     <input type="hidden" asp-for="Booking.CarId" />
+    <input type="hidden" asp-for="Booking.CarModel" />
+    <input type="hidden" asp-for="Booking.CarPlateNumber" />
 
     <div class="mb-3">
         <label asp-for="Booking.StartDate" class="form-label"></label>

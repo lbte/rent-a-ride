@@ -1,5 +1,9 @@
 @model CarAddViewModel
 
+@{
+    ViewData["Title"] = "Add car";
+}
+
 <h2>Create a new car</h2>
 <hr />
 
@@ -32,7 +36,7 @@
 
     <input type="submit" value="Add car" class="btn btn-primary" />
 </form>
-
+<hr />
 <div>
-    <a asp-controller="Car" asp-action="Index">Back to list</a>
+    <a asp-controller="Car" asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>
